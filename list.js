@@ -5,6 +5,7 @@ ipcRenderer.on("appointment:response:list", (event, appointments) => {
     const listDiv = document.getElementById("list");
     appointments.forEach(appointment => {
         const appointmentDiv = document.createElement("div");
+        appointmentDiv.className = "divAppoit"
         const nameParagraph = document.createElement("p");
         nameParagraph.innerHTML = `Name: ${appointment.name}`;
         const numberParagraph = document.createElement("p");

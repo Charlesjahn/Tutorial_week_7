@@ -6,6 +6,7 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
     listDiv.innerHTML = "";
     appointments.forEach(appointment => {
         const appointmentDiv = document.createElement("div");
+        appointmentDiv.className = "divAppoit"
         const nameParagraph = document.createElement("p");
         nameParagraph.innerHTML = `Name: ${appointment.name}`;
         const numberParagraph = document.createElement("p");
@@ -20,6 +21,7 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
         doneParagraph.innerHTML = `Done: ${appointment.done ? "Yes" : "No"}`;
         const doneButton = document.createElement("button");
         doneButton.innerHTML = "Done";
+        doneButton.className = "btnGeral";
 
         doneButton.disabled = appointment.done ? true : false;
         doneButton.onclick = () => done(appointment.id);
