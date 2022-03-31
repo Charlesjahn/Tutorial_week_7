@@ -6,7 +6,7 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
     listDiv.innerHTML = "";
     appointments.forEach(appointment => {
         const appointmentDiv = document.createElement("div");
-        appointmentDiv.className = "divAppoit"
+        appointmentDiv.className = "divAppoit";
         const nameParagraph = document.createElement("p");
         nameParagraph.innerHTML = `Name: ${appointment.name}`;
         const numberParagraph = document.createElement("p");
@@ -19,11 +19,18 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
         symptomsParagraph.innerHTML = `Symptoms: ${appointment.symptoms}`;
         const doneParagraph = document.createElement("p");
         doneParagraph.innerHTML = `Done: ${appointment.done ? "Yes" : "No"}`;
+
+        
         const doneButton = document.createElement("button");
         doneButton.innerHTML = "Done";
         doneButton.className = "btnGeral";
-
+        if (doneParagraph == "Yes") {
+            doneButton.style = "background-color: rgb(252, 174, 174)";
+        } else {
+            doneButton.style = "background-color: silver";
+        }
         doneButton.disabled = appointment.done ? true : false;
+
         doneButton.onclick = () => done(appointment.id);
         appointmentDiv.appendChild(nameParagraph);
         appointmentDiv.appendChild(numberParagraph);

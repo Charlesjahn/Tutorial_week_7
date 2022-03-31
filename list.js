@@ -18,14 +18,12 @@ ipcRenderer.on("appointment:response:list", (event, appointments) => {
         symptomsParagraph.innerHTML = `Symptoms: ${appointment.symptoms}`;
         const doneParagraph = document.createElement("p");
         doneParagraph.innerHTML = `Done: ${appointment.done ? "Yes" : "No"}`;
-        const hr = document.createElement("hr");
         appointmentDiv.appendChild(nameParagraph);
         appointmentDiv.appendChild(numberParagraph);
         appointmentDiv.appendChild(dateParagraph);
         appointmentDiv.appendChild(numberParagraph);
         appointmentDiv.appendChild(hourParagraph);
         appointmentDiv.appendChild(symptomsParagraph);
-        appointmentDiv.appendChild(hr);
         listDiv.append(appointmentDiv);
     });
 });
