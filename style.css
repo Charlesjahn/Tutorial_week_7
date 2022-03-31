@@ -1,6 +1,8 @@
+/*css general*/
 *{
     margin: 0;
-    padding: 0;  
+    padding: 0;
+    border-radius: 20px;
 }
 body{
     width: 100%;
@@ -19,18 +21,50 @@ div{
 form{
     margin: 1.5em;
     padding: 0.8em;
-    background-color: darkgray;
+    background-color: silver;
+}
+ul, li{
+    padding: 0.5em;
+    list-style: none;
 }
 
+/*css classes*/
 .inputField{
     text-align: justify;
     border: 0;
     border-radius: 0.7em;
     background-color:white;
-    margin: 0.1em;
-    padding: 0.4em;
+    margin: 0.3em;
+    padding: 0.5em;
+    min-width: 200px;
+    min-height: 30px;
+    max-width: 200px;
+    max-height: 300px;
+    text-size-adjust: 20px;
     
 }
 .inputField:hover,.inputField:focus{
     background-color:gainsboro;
+    border: 1px solid black;
+}
+
+.submitBtn{
+    position: relative;
+    padding: 0.5em;
+    border: 0;
+    background-color: rgb(120, 180, 250);
+    font-weight: 600;
+
+}
+.submitBtn:hover, .submitBtn:focus{
+    background-color: dodgerblue;
+    border: 1px solid blue;
+}
+
+/*css ids*/
+#listBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }

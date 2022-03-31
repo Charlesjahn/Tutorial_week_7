@@ -6,25 +6,33 @@
 
 <body class="bodyCreate">
     <div>
-
         <form id="form">
-            <h3>Create an appointment</h3><br /><br />
-            <label for="name">Name:</label><br />
-            <input class="inputField" type="text" name="name" required />
-            <br /><br />
-            <label for="number">Phone Number:</label><br />
-            <input class="inputField" type="text" name="number" required />
-            <br /><br />
-            <label for="date">Date of Appointment:</label><br />
-            <input class="inputField" type="text" name="date" placeholder="YYYY-MM-DD" required />
-            <br /><br />
-            <label for="hour">Hour of Appointment:</label><br />
-            <input class="inputField" type="text" name="hour" placeholder="HH:MM" required />
-            <br /><br />
-            <label for="symptoms">Symptoms:</label><br />
-            <textarea name="symptoms" class="inputField" required> </textarea>
-            <br /><br />
-            <input type="submit" />
+            <ul>
+                <li>
+                    <h3>Create an appointment</h3>
+                </li>
+                <li>
+                    <label for="name">Name:</label><br />
+                    <input class="inputField" type="text" name="name" required />
+                </li>
+                <li>
+                    <label for="number">Phone Number:</label><br />
+                    <input class="inputField" type="text" name="number" required />
+                </li>
+                <li>
+                    <label for="date">Date of Appointment:</label><br />
+                    <input class="inputField" type="text" name="date" placeholder="YYYY-MM-DD" required />
+                </li>
+                <li>
+                    <label for="hour">Hour of Appointment:</label><br />
+                    <input class="inputField" type="text" name="hour" placeholder="HH:MM" required />
+                </li>
+                <li>
+                    <label for="symptoms">Symptoms:</label><br />
+                    <textarea name="symptoms" class="inputField" required> </textarea>
+                </li>
+                <li id="listBtn"><input type="submit" class="submitBtn" /></li>
+            </ul>
         </form>
     </div>
     <script src="create.js"></script>
