@@ -19,16 +19,9 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
         symptomsParagraph.innerHTML = `Symptoms: ${appointment.symptoms}`;
         const doneParagraph = document.createElement("p");
         doneParagraph.innerHTML = `Done: ${appointment.done ? "Yes" : "No"}`;
-
-        
         const doneButton = document.createElement("button");
         doneButton.innerHTML = "Done";
         doneButton.className = "btnGeral";
-        if (doneParagraph == "Yes") {
-            doneButton.style = "background-color: rgb(252, 174, 174)";
-        } else {
-            doneButton.style = "background-color: silver";
-        }
         doneButton.disabled = appointment.done ? true : false;
 
         doneButton.onclick = () => done(appointment.id);
