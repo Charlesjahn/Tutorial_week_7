@@ -21,9 +21,9 @@ ipcRenderer.on("appointment:response:list", (event, appointments) => {
         appointmentDiv.appendChild(nameParagraph);
         appointmentDiv.appendChild(numberParagraph);
         appointmentDiv.appendChild(dateParagraph);
-        appointmentDiv.appendChild(numberParagraph);
         appointmentDiv.appendChild(hourParagraph);
         appointmentDiv.appendChild(symptomsParagraph);
+        appointmentDiv.appendChild(doneParagraph);
         listDiv.append(appointmentDiv);
     });
 });

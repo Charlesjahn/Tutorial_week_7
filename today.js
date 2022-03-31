@@ -23,7 +23,6 @@ ipcRenderer.on("appointment:response:today", (event, appointments) => {
         doneButton.innerHTML = "Done";
         doneButton.className = "btnGeral";
         doneButton.disabled = appointment.done ? true : false;
-
         doneButton.onclick = () => done(appointment.id);
         appointmentDiv.appendChild(nameParagraph);
         appointmentDiv.appendChild(numberParagraph);

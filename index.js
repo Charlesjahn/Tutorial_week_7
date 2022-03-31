@@ -18,7 +18,7 @@ app.on("ready", () => {
         webPreferences: {
             nodeIntegration: true
         },
-        min_width: 800,
+        min_width: 600,
         min_height: 650,
         title: "GP Appointments App"
     });
@@ -38,7 +38,7 @@ const createWindowCreator = () => {
         webPreferences: {
             nodeIntegration: true
         },
-        min_width: 800,
+        min_width: 500,
         min_height: 650,
         title: "Create New Appointment"
     }); createWindow.setMenu(null);
@@ -52,8 +52,8 @@ const listWindowCreator = () => {
         webPreferences: {
             nodeIntegration: true
         },
-        min_width: 800,
-        min_height: 650,
+        min_width: 700,
+        min_height: 700,
         title: "All Appointments"
     });
     listWindow.setMenu(null);
