@@ -10,13 +10,16 @@ fs.readFile("db.json", (err, jsonAppointments) => {
     if (!err) {
         const oldAppointments = JSON.parse(jsonAppointments);
         allAppointments = oldAppointments;
-    }
+    };
 });
 app.on("ready", () => {
+    // creating main window
     todayWindow = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
         },
+        min_width: 800,
+        min_height: 650,
         title: "GP Appointments App"
     });
     todayWindow.loadURL(`file://${__dirname}/today.html`);
@@ -29,25 +32,28 @@ app.on("ready", () => {
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
 });
+// creating new appoinment window
 const createWindowCreator = () => {
     createWindow = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
         },
-        width: 600,
-        height: 400,
+        min_width: 800,
+        min_height: 650,
         title: "Create New Appointment"
     }); createWindow.setMenu(null);
     createWindow.loadURL(`file://${__dirname}/create.html`);
     createWindow.on("closed", () => (createWindow = null));
 };
+// creating all appoinment window
+
 const listWindowCreator = () => {
     listWindow = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
         },
-        width: 600,
-        height: 400,
+        min_width: 800,
+        min_height: 650,
         title: "All Appointments"
     });
     listWindow.setMenu(null);

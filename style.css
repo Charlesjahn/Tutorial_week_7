@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;  
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: darkgray;
+}
+.bodyCreate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div{
+    background-color: silver;
+}
+form{
+    margin: 1.5em;
+    padding: 0.8em;
+    background-color: darkgray;
+}
+
+.inputField{
+    text-align: justify;
+    border: 0;
+    border-radius: 0.7em;
+    background-color:white;
+    margin: 0.1em;
+    padding: 0.4em;
+    
+}
+.inputField:hover,.inputField:focus{
+    background-color:gainsboro;
+}
