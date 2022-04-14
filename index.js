@@ -5,11 +5,11 @@ const { app, BrowserWindow, Menu, ipcMain } = electron;
 let todayWindow;
 let createWindow;
 let listWindow;
-let allAppointments = [];
-fs.readFile("db.json", (err, jsonAppointments) => {
+let allServices = [];
+fs.readFile("db.json", (err, jsonServices) => {
     if (!err) {
-        const oldAppointments = JSON.parse(jsonAppointments);
-        allAppointments = oldAppointments;
+        const oldServices = JSON.parse(jsonServices);
+        allServices = oldServices;
     };
 });
 app.on("ready", () => {
@@ -20,12 +20,12 @@ app.on("ready", () => {
         },
         min_width: 600,
         min_height: 650,
-        title: "GP Appointments App"
+        title: "CA Bikes service booking"
     });
     todayWindow.loadURL(`file://${__dirname}/today.html`);
     todayWindow.on("closed", () => {
-        const jsonAppointments = JSON.stringify(allAppointments);
-        fs.writeFileSync("db.json", jsonAppointments);
+        const jsonServices = JSON.stringify(allServices);
+        fs.writeFileSync("db.json", jsonServices);
         app.quit();
         todayWindow = null;
     });
@@ -40,7 +40,7 @@ const createWindowCreator = () => {
         },
         min_width: 500,
         min_height: 650,
-        title: "Create New Appointment"
+        title: "Booking New Service "
     }); createWindow.setMenu(null);
     createWindow.loadURL(`file://${__dirname}/create.html`);
     createWindow.on("closed", () => (createWindow = null));
@@ -54,51 +54,51 @@ const listWindowCreator = () => {
         },
         min_width: 700,
         min_height: 700,
-        title: "All Appointments"
+        title: "All Services"
     });
     listWindow.setMenu(null);
     listWindow.loadURL(`file://${__dirname}/list.html`);
     listWindow.on("closed", () => (listWindow = null));
 };
-ipcMain.on("appointment:create", (event, appointment) => {
-    appointment["id"] = uuid();
-    appointment["done"] = 0;
-    allAppointments.push(appointment);
-    sendTodayAppointments();
+ipcMain.on("servicesBikes:create", (event, servicesBikes) => {
+    servicesBikes["id"] = uuid();
+    servicesBikes["done"] = 0;
+    allServices.push(servicesBikes);
+    sendTodayServices();
     createWindow.close();
 });
-ipcMain.on("appointment:request:list", event => {
-    listWindow.webContents.send("appointment:response:list",
-        allAppointments);
+ipcMain.on("servicesBikes:request:list", event => {
+    listWindow.webContents.send("servicesBikes:response:list",
+        allServices);
 });
-ipcMain.on("appointment:request:today", event => {
-    sendTodayAppointments();
+ipcMain.on("servicesBikes:request:today", event => {
+    sendTodayServices();
 });
-ipcMain.on("appointment:done", (event, id) => {
-    allAppointments.forEach(appointment => {
-        if (appointment.id === id) appointment.done = 1;
+ipcMain.on("servicesBikes:done", (event, id) => {
+    allServices.forEach(servicesBikes => {
+        if (servicesBikes.id === id) servicesBikes.done = 1;
     });
-    sendTodayAppointments();
+    sendTodayServices();
 });
-const sendTodayAppointments = () => {
+const sendTodayServices = () => {
     const today = new Date().toISOString().slice(0, 10);
-    const filtered = allAppointments.filter(
-        appointment => appointment.date === today
+    const filtered = allServices.filter(
+        servicesBikes => servicesBikes.date === today
     );
-    todayWindow.webContents.send("appointment:response:today", filtered);
+    todayWindow.webContents.send("servicesBikes:response:today", filtered);
 };
 const menuTemplate = [
     {
         label: "File",
         submenu: [
             {
-                label: "New Appointment",
+                label: "New Services",
                 click() {
                     createWindowCreator();
                 }
             },
             {
-                label: "All Appointments",
+                label: "All Services",
                 click() {
                     listWindowCreator();
                 }

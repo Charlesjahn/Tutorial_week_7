@@ -7,11 +7,131 @@
 <body>
     <div id="divForm">
         <form id="form">
-            <ul>
-                <li>
-                    <h3>New Appointment</h3>
-                </li>
-                <li>
+            <h3>Service Booking</h3>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <input type="text" class="input" name="name" id="name" placeholder="Full Name">
+                    </td>
+                    <td colspan="2">
+                        <input type="number" class="input" name="phoneNumber" id="phoneNumber"
+                            placeholder="Phone Number">
+                    </td>
+
+                    <td id="serviceorder">
+                        <label for="">S.O.# </label>
+                        <h2 id="ordernumb">####</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="text" id="itembrand" class="input" name="itembrand" placeholder="Bike's Brand">
+                    </td>
+
+                    <td colspan="2">
+                        <input type="text" id="colouritem" class="input" name="colouritem" placeholder="Bike colour">
+                    </td>
+                    <td>
+                        <select name="model" class="select-items" id="model">
+                            <option value="none" selected disabled hidden>Model</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="typeservice" class="select-items" id="typeservice">
+                            <option value="none" selected disabled hidden>Service</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="typeBrakes" class="select-items" id="typeBrakes">
+                            <option value="none" selected disabled hidden>Type of brakes</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="pads" class="select-items" id="pads" style="visibility: ">
+                            <option value="none" selected disabled hidden>Pads to change</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="disc" class="select-items" id="disc" style="visibility: ">
+                            <option value="none" selected disabled hidden>Disc size/type</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <select name="maketyres" class="select-items" id="maketyres">
+                            <option value="none" selected disabled hidden>Make</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="flattyre" class="select-items" id="flattyre">
+                            <option value="none" selected disabled hidden>Flat Tyre</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="sizetyre" class="select-items" id="sizetyre" style="visibility: ">
+                            <option value="none" selected disabled hidden>Tyre's size</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="" class="select-items" id="" style="visibility: ">
+                            <option value="none" selected disabled hidden>Empty</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="" class="select-items" id="" style="visibility: ">
+                            <option value="none" selected disabled hidden>Empty</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="makeparts" class="select-items" id="makeparts">
+                            <option value="none" selected disabled hidden>Make</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="chain" class="select-items" id="chain">
+                            <option value="none" selected disabled hidden>Chain</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cassette" class="select-items" id="cassette" style="visibility: ">
+                            <option value="none" selected disabled hidden>Cassette</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="crankset" class="select-items" id="crankset" style="visibility: ">
+                            <option value="none" selected disabled hidden>Crankset</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="eType" class="select-items" id="eType" style="visibility: ">
+                            <option value="none" selected>None</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <textarea name="extrainfo" class="input" id="extrainfo" placeholder="Extra info"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <input type="submit" value="Submit" class="btnGeral">
+                    </td>
+                    <td>
+                        <input id="price" type="number" min="0.00" max="10000.00" step="0.01" placeholder="Price €:" />
+                    </td>
+                </tr>
+            </table>
+            <!-- <li>
                     <label for="name">Name:</label><br />
                     <input class="inputField" type="text" name="name" required />
                 </li>
@@ -33,8 +153,7 @@
                 </li>
                 <li id="listBtn">
                     <input type="submit" class="btnGeral" />
-                </li>
-            </ul>
+                </li> -->
         </form>
     </div>
     <script src="create.js"></script>

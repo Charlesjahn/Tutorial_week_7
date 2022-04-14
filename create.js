@@ -9,5 +9,5 @@ form.addEventListener("submit", event => {
         if (form.elements[i].type !== "submit")
             elements[form.elements[i].name] = form.elements[i].value;
     }
-    ipcRenderer.send("appointment:create", elements);
+    ipcRenderer.send("servicesBikes:create", elements);
 });

@@ -1,39 +1,39 @@
 const electron = require("electron");
 const { ipcRenderer } = electron;
-ipcRenderer.send("appointment:request:today");
-ipcRenderer.on("appointment:response:today", (event, appointments) => {
+ipcRenderer.send("servicesBikes:request:today");
+ipcRenderer.on("servicesBikes:response:today", (event, servicesBikesX) => {
     const listDiv = document.getElementById("list");
     listDiv.innerHTML = "";
-    appointments.forEach(appointment => {
-        const appointmentDiv = document.createElement("div");
-        appointmentDiv.className = "divAppoit";
+    servicesBikesX.forEach(servicesBikes => {
+        const servicesBikesDiv = document.createElement("div");
+        servicesBikesDiv.className = "divAppoit";
         const nameParagraph = document.createElement("p");
-        nameParagraph.innerHTML = `Name: ${appointment.name}`;
+        nameParagraph.innerHTML = `Name: ${servicesBikes.name}`;
         const numberParagraph = document.createElement("p");
-        numberParagraph.innerHTML = `Phone Number: ${appointment.number}`;
+        numberParagraph.innerHTML = `Phone Number: ${servicesBikes.number}`;
         const dateParagraph = document.createElement("p");
-        dateParagraph.innerHTML = `Date: ${appointment.date}`;
+        dateParagraph.innerHTML = `Date: ${servicesBikes.date}`;
         const hourParagraph = document.createElement("p");
-        hourParagraph.innerHTML = `Hour: ${appointment.hour}`;
+        hourParagraph.innerHTML = `Hour: ${servicesBikes.hour}`;
         const symptomsParagraph = document.createElement("p");
-        symptomsParagraph.innerHTML = `Symptoms: ${appointment.symptoms}`;
+        symptomsParagraph.innerHTML = `Symptoms: ${servicesBikes.symptoms}`;
         const doneParagraph = document.createElement("p");
-        doneParagraph.innerHTML = `Done: ${appointment.done ? "Yes" : "No"}`;
+        doneParagraph.innerHTML = `Done: ${servicesBikes.done ? "Yes" : "No"}`;
         const doneButton = document.createElement("button");
         doneButton.innerHTML = "Done";
         doneButton.className = "btnGeral";
-        doneButton.disabled = appointment.done ? true : false;
-        doneButton.onclick = () => done(appointment.id);
-        appointmentDiv.appendChild(nameParagraph);
-        appointmentDiv.appendChild(numberParagraph);
-        appointmentDiv.appendChild(dateParagraph);
-        appointmentDiv.appendChild(doneParagraph);
-        appointmentDiv.appendChild(hourParagraph);
-        appointmentDiv.appendChild(symptomsParagraph);
-        appointmentDiv.appendChild(doneButton);
-        listDiv.append(appointmentDiv);
+        doneButton.disabled = servicesBikes.done ? true : false;
+        doneButton.onclick = () => done(servicesBikes.id);
+        servicesBikesDiv.appendChild(nameParagraph);
+        servicesBikesDiv.appendChild(numberParagraph);
+        servicesBikesDiv.appendChild(dateParagraph);
+        servicesBikesDiv.appendChild(doneParagraph);
+        servicesBikesDiv.appendChild(hourParagraph);
+        servicesBikesDiv.appendChild(symptomsParagraph);
+        servicesBikesDiv.appendChild(doneButton);
+        listDiv.append(servicesBikesDiv);
     });
 });
 const done = id => {
-    ipcRenderer.send("appointment:done", id);
+    ipcRenderer.send("servicesBikes:done", id);
 };
